@@ -1,0 +1,25 @@
+
+# kubectl create deployment sync-env --image akankshakumari393/sync-env:0.0.1
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: node-os-label-controller
+  name: node-os-label-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-os-label-controller
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: node-os-label-controller
+    spec:
+      containers:
+      - image: akankshakumari393/node-os-label-controller:0.0.1
+        name: node-os-label-controller
+        args: ["linux"]
+        #command: ["node-os-label-controller"]
